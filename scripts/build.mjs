@@ -1,0 +1,23 @@
+import fs from "node:fs";
+import path from "node:path";
+import {pages,renderPage} from './pages.mjs';
+import {normalizeBasePath} from './base-path.mjs';
+const basePath=normalizeBasePath(process.env.HUMBLE_BASE_PATH);
+const prepare=html=>html.replace('</head>',`<meta name="humble-base-path" content="${basePath}"></head>`).replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attribute,value)=>`${attribute}="${basePath}/${value}"`);
+const workspace = process.cwd();
+const output = path.resolve(workspace, "out");
+if (path.dirname(output) !== workspace || path.basename(output) !== "out") throw new Error("Output must be this workspace's out directory.");
+if (fs.existsSync(output) && fs.lstatSync(output).isSymbolicLink()) throw new Error("Refusing to replace a linked output directory.");
+if (fs.existsSync(output)) fs.rmSync(output, { recursive: true });
+fs.mkdirSync(path.join(output, "assets"), { recursive: true });
+const home = fs.readFileSync(path.join(workspace,'index.html'),'utf8');
+fs.writeFileSync(path.join(output,'index.html'),prepare(home));
+fs.writeFileSync(path.join(output,'.nojekyll'),'');
+fs.cpSync(path.join(workspace, "assets"), path.join(output, "assets"), { recursive: true });
+for(const page of pages){
+ if(!/^(origin|creators|about|data|apply|404)$/.test(page.route))throw Error('Unknown page route');
+ const target=page.route==='404'?path.join(output,'404.html'):path.join(output,page.route,'index.html');
+ fs.mkdirSync(path.dirname(target),{recursive:true});
+ fs.writeFileSync(target,prepare(renderPage(home,page)));
+}
+console.log('Humble built: home, origin, creators, about, data, apply, and 404.');
