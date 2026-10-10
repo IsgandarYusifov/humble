@@ -1,9 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
+import {createHash} from 'node:crypto';
 import {pages,renderPage} from './pages.mjs';
 import {normalizeBasePath} from './base-path.mjs';
 const basePath=normalizeBasePath(process.env.HUMBLE_BASE_PATH);
-const prepare=html=>html.replace('</head>',`<meta name="humble-base-path" content="${basePath}"></head>`).replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attribute,value)=>`${attribute}="${basePath}/${value}"`);
+const assetVersions=new Map();
+const versionAssets=html=>html.replace(/\b(href|src)="\/(assets\/[^"?#]+)"/g,(_,attribute,asset)=>{
+ if(!assetVersions.has(asset))assetVersions.set(asset,createHash('sha256').update(fs.readFileSync(path.resolve(asset))).digest('hex').slice(0,12));
+ return `${attribute}="/${asset}?v=${assetVersions.get(asset)}"`;
+});
+const prepare=html=>versionAssets(html).replace('</head>',`<meta name="humble-base-path" content="${basePath}"></head>`).replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attribute,value)=>`${attribute}="${basePath}/${value}"`);
 const workspace = process.cwd();
 const output = path.resolve(workspace, "out");
 if (path.dirname(output) !== workspace || path.basename(output) !== "out") throw new Error("Output must be this workspace's out directory.");
