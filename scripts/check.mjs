@@ -11,6 +11,7 @@ const issues=[];let linkCount=0;
 for(const [route,html] of documents){
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
  if(/<dialog\b/.test(html))issues.push(`${route}: application modal remains`);
+ if(/[\u2197\u2193\u2191]/.test(html))issues.push(`${route}: font-dependent direction glyph remains`);
  for(const match of html.matchAll(/<a([^>]*\bdata-apply\b[^>]*)>/g)){
   const href=match[1].match(/href="([^"]*)"/)?.[1];
   const valid=href==='#application-form'||href===basePath+'/apply/'||['culture','art','agent','product'].some(category=>href===basePath+'/apply/?category='+category);
