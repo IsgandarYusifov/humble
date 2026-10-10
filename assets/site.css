@@ -13,3 +13,41 @@
 @media(prefers-reduced-motion:reduce){.block-apply:hover{transform:none;box-shadow:6px 6px 0 var(--pink)}}
 
 a.nav-apply{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}.signal-apply{display:inline-flex;align-items:center;gap:15px}
+
+/* Direction marks use CSS strokes so mobile platforms cannot substitute emoji. */
+.ui-arrow{display:inline-block;position:relative;width:1em;height:1em;flex:0 0 auto;vertical-align:-.12em;pointer-events:none}
+.ui-arrow::before{content:'';position:absolute;left:.1em;top:calc(50% - 1px);width:.78em;height:2px;background:currentColor}
+.ui-arrow::after{content:'';position:absolute;right:.12em;top:calc(50% - .19em);width:.38em;height:.38em;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg)}
+.ui-arrow--ne{transform:rotate(-45deg)}.ui-arrow--down{transform:rotate(90deg)}.ui-arrow--up{transform:rotate(-90deg)}
+.console-top>span:last-child{display:inline-flex;align-items:center;gap:9px}.console-top .ui-arrow{font-size:14px}.signal-art{pointer-events:none}
+.signal-output{display:grid;grid-template-columns:minmax(0,1fr) 140px;grid-template-areas:'copy art' 'action art';gap:24px 20px;align-items:start;padding:28px 20px;min-height:268px}
+.signal-description{grid-area:copy;max-width:none}.signal-description p{font-size:12px}
+.signal-art{grid-area:art;position:relative;inset:auto;width:140px;height:190px;align-self:center;overflow:hidden;contain:paint;transform:none;animation:none;perspective:none}
+.signal-art i{inset:20px 14px;animation:signal-glyph 36s ease-in-out infinite alternate}.signal-output[data-signal=agent] .signal-art{--signal-step:30deg}
+.signal-apply{grid-area:action;position:relative;inset:auto;min-height:44px;width:fit-content;max-width:100%;font-size:10px;line-height:1.6;gap:14px}.signal-apply .ui-arrow{font-size:18px}
+@keyframes signal-glyph{from{transform:rotate(calc(var(--i)*var(--signal-step,18deg) - 8deg)) scale(calc(1 - var(--i)*.11))}to{transform:rotate(calc(var(--i)*var(--signal-step,18deg) + 8deg)) scale(calc(1 - var(--i)*.11))}}
+
+@media(max-width:760px){
+ html{scroll-padding-top:148px}
+ .masthead{padding:12px 16px;gap:10px;min-height:0}
+ .masthead nav{padding-top:8px}
+ .masthead nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:6px;font-size:11px}
+ .masthead .effects,.masthead .nav-apply{min-height:44px}
+ .field-intro{font-size:14px;line-height:1.65}
+ .signal-console{transform:none;box-shadow:6px 6px 0 var(--yellow)}
+ .signal-table button{min-height:64px;padding:16px 18px;grid-template-columns:22px minmax(0,1fr) 24px}
+ .signal-table strong{font-size:20px;line-height:1.2}.row-arrow.ui-arrow{font-size:22px}
+ .console-top{padding:17px 18px;font-size:9px;gap:14px}
+ .signal-output{display:grid;grid-template-columns:minmax(0,1fr) 104px;grid-template-areas:'copy copy' 'action art';gap:20px 16px;align-items:center;padding:26px 18px;min-height:0}
+ .signal-description{grid-area:copy;max-width:none}
+ .signal-description>span{font-size:9px}
+ .signal-description h3{font-size:30px;line-height:1.04;max-width:18ch;margin:17px 0 14px}
+ .signal-description p{font-size:13px;line-height:1.7;color:#d1c9bd}
+ .signal-art{grid-area:art;position:relative;right:auto;top:auto;width:104px;height:128px;overflow:hidden;transform:none;animation:none;perspective:none}
+ .signal-art i{inset:17px 14px;border-width:1.5px}
+ .signal-apply{grid-area:action;position:relative;inset:auto;width:100%;max-width:100%;min-height:48px;font-size:10px;line-height:1.55;padding:12px;justify-content:space-between;gap:10px;border-color:#aaa38a}
+ .signal-apply .ui-arrow{font-size:18px}
+ .data-reading article{scroll-margin-top:16px}
+}
+@media(max-width:380px){.masthead .wordmark{font-size:28px}.masthead nav a{font-size:10px}.header-actions{gap:8px}.masthead .nav-apply{padding-inline:10px}.console-top{font-size:8px}.signal-table strong{font-size:18px}.signal-output{grid-template-columns:minmax(0,1fr) 88px;gap:18px 12px}.signal-art{width:88px}.signal-description h3{font-size:28px}.signal-apply{padding:10px;font-size:10px}}
+@media(max-width:380px){.masthead .wordmark{font-size:26px}.masthead .effects{font-size:8px;padding-inline:7px}.header-actions{gap:7px}.masthead .nav-apply .ui-arrow{font-size:16px}}
