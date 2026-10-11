@@ -11,3 +11,16 @@ a.nav-apply{display:inline-flex;align-items:center;justify-content:center;white-
 @media(max-width:380px){.application-stamp{font-size:16px;padding:9px;right:2px;bottom:-6px;box-shadow:2px 2px 0 var(--blue)}}
 
 .application-sheet-top{color:var(--paper)}.application-submit:hover{color:var(--paper)}
+
+/* Match the application controls to the shared action hierarchy. */
+a.nav-apply[aria-current=page]{background:var(--lime);box-shadow:var(--control-shadow)}
+.apply-intro .page-title em{text-shadow:none;transform:rotate(-1deg);line-height:1.07}
+.application-stamp{font-family:'Humble Display',Humble,Arial,sans-serif;font-size:clamp(24px,2.3vw,35px);font-weight:600;line-height:1.05;letter-spacing:-.03em;padding:22px 26px;transform:rotate(3deg);box-shadow:3px 3px 0 #15151a55}
+.application-layout{gap:54px;padding-block:62px 76px}.application-sheet{border-width:1px;box-shadow:3px 3px 0 #c6beda99}
+.application-sheet legend{font-family:'Humble Display',Humble,Arial,sans-serif;font-weight:600;letter-spacing:-.035em;line-height:1.2}
+.application-submit{font-family:Humble,Arial,sans-serif;font-size:16px;font-weight:600;letter-spacing:-.02em;min-height:54px;padding:15px 18px;border-width:1px;border-radius:var(--control-radius);box-shadow:var(--control-shadow)}
+.application-submit .ui-arrow{font-size:21px}.application-download{min-height:46px;border-radius:var(--control-radius)}.application-download .ui-arrow{font-size:18px}
+.application-sheet input,.application-sheet textarea,.application-sheet select,.clear-confirm,.clear-confirm button{border-radius:var(--control-radius)}
+@media(max-width:1100px){.application-layout{gap:36px}}
+@media(max-width:760px){.application-layout{padding-block:36px 52px;gap:30px}.application-stamp{font-size:18px;padding:10px;transform:rotate(3deg)}.application-submit{font-size:15px;min-height:54px}.application-sheet legend{font-size:23px}}
+@media(max-width:380px){.application-stamp{font-size:16px;padding:9px}}

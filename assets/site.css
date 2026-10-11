@@ -55,3 +55,66 @@ a.nav-apply{display:inline-flex;align-items:center;justify-content:center;white-
 /* Maintain readable contrast across the muted light and plum canvases. */
 .manifesto-meta,.manifesto-footer .text-link,.origin-intro .page-meta,.origin-intro .text-link,.route-caption,.missing-page .eyebrow,.missing-page>p{color:var(--paper)}
 .about-intro .text-link:hover,.about-now .text-link:hover{color:var(--ink)}
+
+/* A quieter shared interface around the expressive poster typography. */
+:root{--control-radius:4px;--control-shadow:2px 2px 0 #00000055}
+.masthead{min-height:80px}
+.masthead nav{transform:none;box-shadow:none;background:transparent;border:0;gap:4px;padding:0}
+.masthead nav a{font-family:Humble,Arial,sans-serif;font-size:12px;font-weight:500;text-transform:none;letter-spacing:0;padding:12px 15px;border-radius:var(--control-radius);color:#ccc7d8}
+.masthead nav a:hover,.masthead nav a[aria-current=page]{background:#ffffff0b;color:var(--paper)}
+.masthead nav a[aria-current=page]{box-shadow:inset 0 -2px var(--lime)}
+.effects{border-color:transparent;background:transparent;padding-inline:10px;color:#b9b3c6}
+.effects:hover{border-color:#ffffff25;background:#ffffff05}
+.effects:disabled{cursor:default;opacity:.65}
+.nav-apply,.hero-apply,.final-apply,.block-apply{font-family:Humble,Arial,sans-serif;font-weight:650;font-synthesis:none;line-height:1.25;letter-spacing:-.02em;transform:none;border-radius:var(--control-radius);box-shadow:var(--control-shadow);transition:background .2s,color .2s,box-shadow .2s,transform .2s}
+.masthead .nav-apply{min-height:44px;padding:12px 18px;font-size:13px;border:1px solid #c4baf5;gap:16px}
+.masthead .nav-apply .ui-arrow{font-size:17px;margin-left:0}
+.hero-apply{min-height:56px;min-width:190px;width:190px;padding:15px 20px;font-size:20px;gap:24px;border-color:#c4baf5}
+.final-apply{min-height:56px;width:220px;max-width:100%;padding:15px 20px;font-size:21px;border-width:1px;color:var(--paper)}
+.block-apply{min-height:54px;max-width:100%;padding:15px 20px;gap:28px;border-width:1px;font-size:16px;text-align:left}
+.hero-apply .ui-arrow,.final-apply .ui-arrow,.block-apply .ui-arrow{font-size:21px;flex-shrink:0}
+.nav-apply:hover,.hero-apply:hover{background:#bdb2f6;color:var(--ink);transform:translateY(-1px);box-shadow:2px 3px 0 #00000055}
+.final-apply:hover,.block-apply:hover{background:#29252f;color:var(--paper);transform:translateY(-1px);box-shadow:2px 3px 0 #00000055}
+html[data-effects=calm] .hero-apply:hover,html[data-effects=calm] .final-apply:hover,html[data-effects=calm] .block-apply:hover,html[data-effects=calm] .nav-apply:hover{transform:none;box-shadow:var(--control-shadow)}
+.text-link{min-height:44px;align-items:center;gap:18px;padding-block:10px;font-size:11px;letter-spacing:0}
+.text-link .ui-arrow{font-size:18px}
+.portal{height:calc(100svh - 80px)}
+.hero-bottom{gap:32px}.hero-bottom p{min-width:210px}
+.floating-label{box-shadow:2px 2px 0 #00000055;padding:12px 15px}
+.showcase{padding-block:76px 72px}
+.gallery-heading{margin-block:42px 38px}
+.registry-status{transform:none;border-width:1px;box-shadow:3px 3px 0 #c6beda99;gap:24px;padding:30px 32px}
+.registry-status>p{font-family:'Humble Display',Humble,Arial,sans-serif;font-size:clamp(34px,4vw,60px);font-weight:600;line-height:1.07;letter-spacing:-.04em}
+.registry-status strong{font-weight:700}.registry-note{font:14px/1.7 Humble,Arial,sans-serif;max-width:330px;color:#d3cddd}
+.registry-link{font:11px/1.6 var(--mono);margin-top:18px;min-height:44px;display:inline-flex;align-items:center;gap:12px;text-decoration:none;border-bottom:1px solid #ab9ff277;padding-bottom:5px}
+.idea-field{padding-block:76px;gap:54px}.field-ghost{display:none}
+.signal-console{transform:none;border-width:1px;box-shadow:3px 3px 0 #15151a44}
+.signal-table button{min-height:64px;transition:background .2s,color .2s}
+.signal-table strong{font-size:20px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
+.signal-table button .row-arrow{font-size:20px;opacity:.55}.signal-table button[aria-pressed=true] .row-arrow{opacity:1}
+.signal-table button:not([aria-pressed=true]):hover{background:#2b2735}
+.signal-description h3{font-family:'Humble Display',Humble,Arial,sans-serif;font-weight:600;line-height:1.08;letter-spacing:-.035em}
+.signal-apply{border-radius:var(--control-radius)}
+.content-section{padding-block:76px}
+.content-section h2{font-family:'Humble Display',Humble,Arial,sans-serif;font-weight:600;line-height:1.05;letter-spacing:-.04em}
+.home-questions{gap:60px}.home-questions .questions summary{font-size:19px;font-weight:550;line-height:1.4}
+.questions summary{font-weight:550;line-height:1.4}.questions summary::after{font-size:21px;flex-shrink:0}
+.page-intro{min-height:0;padding-bottom:56px}
+.origin-intro .page-title em{line-height:1.08;-webkit-text-stroke-width:1.5px}
+.about-intro .page-title em{transform:rotate(-1deg);text-shadow:none;line-height:1.05}
+.page-next{padding-block:56px;align-items:center}.page-next p{font-family:'Humble Display',Humble,Arial,sans-serif;line-height:1.08;letter-spacing:-.04em;font-weight:500}.page-next strong{font-weight:700}
+.about-stage{transform:rotate(-1deg);border-width:1px;box-shadow:3px 3px 0 #15151a55}.about-stage strong{font-family:'Humble Display',Humble,Arial,sans-serif;line-height:1.03;letter-spacing:-.04em;font-weight:700}
+.invitation{min-height:0;padding-bottom:52px}.invitation h2{font-size:clamp(76px,10.7vw,164px);line-height:1.05}.invitation-action{margin-top:25px}.invitation-action p{font-size:15px;line-height:1.7}
+.site-footer{padding-top:48px}.footer-top{padding-bottom:30px}.footer-wordmark{font-size:48px;letter-spacing:-.065em}.footer-grid{padding-block:32px 40px;gap:30px}.footer-grid>div{gap:8px}.footer-grid a{min-height:32px;display:inline-flex;align-items:center;gap:12px}.footer-contact a[data-apply]{min-height:46px;gap:24px;border-radius:var(--control-radius);padding:12px 16px}.footer-bottom{align-items:center;font-size:10px}
+@media(max-width:1100px){.masthead nav a{padding-inline:10px;font-size:11px}.header-actions{gap:8px}.hero-bottom{gap:24px}.hero-bottom p{min-width:185px}.idea-field{gap:32px}.invitation{gap:0 36px}.invitation h2{font-size:10.7vw}.home-questions{gap:36px}}
+@media(max-width:760px){
+ .masthead{min-height:0;gap:8px;padding:12px 16px}.masthead nav{gap:0;border-top:1px solid #ffffff20;padding:7px 0 0}.masthead nav a{font-size:11px;padding:8px 6px;min-height:44px}.masthead .effects{padding:0 5px;font-size:9px}.masthead .nav-apply{padding:11px 13px;gap:10px}.header-actions{gap:8px}
+ .portal{height:740px}.hero-bottom p{min-width:0}.hero-apply{width:180px;min-width:0;min-height:52px;font-size:18px;padding:14px 18px}.hero-apply .ui-arrow{font-size:19px}.floating-label{padding:10px 12px}
+ .showcase{padding-block:52px}.gallery-heading{margin-block:30px}.registry-status{padding:25px 22px;gap:18px}.registry-status>p{font-size:9vw}.registry-note{font-size:13px;max-width:none}.registry-link{font-size:10px}
+ .idea-field{padding-block:52px}.field-intro{margin-bottom:30px}.signal-table strong{font-size:19px}.signal-table button{min-height:64px}.signal-description h3{font-size:28px}
+ .content-section{padding-block:52px}.content-section h2{font-size:11.5vw}.page-intro{min-height:0;padding-bottom:40px}.home-questions{gap:30px}.home-questions .questions summary{font-size:17px}.questions summary{font-size:18px;padding-block:22px}
+ .block-apply{font-size:15px;min-height:52px;padding:14px 18px;gap:20px}.block-apply .ui-arrow{font-size:20px}.text-link{font-size:10px}.page-next{padding-block:42px}.page-next p{font-size:10vw}.email-route .block-apply{font-size:14px;padding:14px 18px}
+ .invitation{padding-bottom:38px;gap:0}.invitation h2{font-size:20vw}.invitation-action{margin-top:26px}.invitation-action p{font-size:14px}.final-apply{width:210px;font-size:20px;min-height:54px;padding:14px 18px}.final-apply .ui-arrow{font-size:20px}
+ .site-footer{padding-top:38px}.footer-wordmark{font-size:42px}.footer-grid{gap:26px 20px}.footer-bottom{font-size:8px}.footer-grid a{min-height:36px}
+}
+@media(max-width:380px){.masthead .wordmark{font-size:27px;letter-spacing:-1.9px}.masthead .effects{font-size:8px;padding-inline:4px}.masthead .nav-apply{padding-inline:11px;gap:8px}.masthead .nav-apply .ui-arrow{font-size:15px}.header-actions{gap:5px}.masthead nav a{font-size:10px}.signal-table strong{font-size:18px}}
