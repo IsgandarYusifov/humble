@@ -23,7 +23,7 @@ for(const [route,html] of documents){
  if(new Set(ids).size!==ids.length)issues.push(`${route}: duplicate IDs`);
  if((html.match(/<h1\b/g)||[]).length!==1)issues.push(`${route}: expected one h1`);
  if(/Chroma|Nexus|chromalabs|nexus_core|7xKX|9yLM/.test(html))issues.push(`${route}: invented launch content`);
- for(const match of html.matchAll(/\b(?:href|src)="([^"]+)"/g)){
+ for(const match of html.matchAll(/\b(?:href|src|poster)="([^"]+)"/g)){
   const value=match[1];if(/^(mailto:|https?:|data:)/.test(value))continue;
   const url=new URL(value,'https://humble.test'+basePath+route);linkCount++;
   if(basePath&&!url.pathname.startsWith(basePath+'/')){issues.push(`${route}: link outside base path ${value}`);continue;}
@@ -34,7 +34,7 @@ for(const [route,html] of documents){
   if(url.hash&&!target.includes(`id="${url.hash.slice(1)}"`))issues.push(`${route}: missing anchor ${value}`);
  }
 }
-for(const file of ['scripts/base-path.mjs','scripts/build.mjs','scripts/pages.mjs','scripts/horizon-page.mjs','scripts/preview.mjs','assets/application.js','assets/acid-interactions.js','assets/rupture-scene.js','assets/horizon-scene.js']){
+for(const file of ['scripts/base-path.mjs','scripts/build.mjs','scripts/pages.mjs','scripts/horizon-page.mjs','scripts/preview.mjs','assets/application.js','assets/acid-interactions.js','assets/rupture-scene.js','assets/horizon-scene.js','assets/horizon-media.js']){
  const result=spawnSync(process.execPath,['--check',file],{encoding:'utf8'});if(result.status!==0)issues.push(`${file}: ${result.stderr.trim()}`);
 }
 if(issues.length){console.error(issues.join('\n'));process.exit(1);}
