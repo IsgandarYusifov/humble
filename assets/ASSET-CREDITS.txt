@@ -1,0 +1,29 @@
+INTERNET-CULTURE.WEBP
+
+Artist/project: Nouns / nounsDAO
+Source: https://nouns.wtf/brand
+Original asset: https://raw.githubusercontent.com/nounsDAO/nouns-monorepo/master/packages/nouns-webapp/src/pages/BrandAssets/playground-nouns.webp
+License: CC0 1.0 Universal (public domain dedication), as stated on the official Nouns brand-assets page for logos, traits and Playground Nouns.
+License reference: https://creativecommons.org/publicdomain/zero/1.0/
+
+Used unchanged as a signed culture reference, not a Humble launch, member, endorsement, Solana token or partner.
+The source repository's software license is separate from its CC0 artwork.
+
+OFFICIAL ECOSYSTEM LOGOS
+
+Solana: https://solana.com/src/img/branding/solanaLogo.svg
+Guidelines: https://solana.com/branding
+Pump.fun: https://pump.fun/pump-logomark.svg
+Guidelines: https://pump.fun/docs/trademark-guidelines
+Raydium: https://v2.raydium.io/logo/logo-with-text.svg
+Guidelines: https://docs.raydium.io/resources/brand-kit
+Meteora: https://launch.meteora.ag/icons/meteora-wordmark.svg
+Reference: https://docs.meteora.ag/resources/miscellaneous/brand-kit
+
+Displayed unaltered with preserved proportions and clear space in a linked ecosystem reference section. Marks remain the property of their respective owners. No sponsorship, integration or affiliation is claimed.
+
+Solana standalone mark: https://solana.com/src/img/branding/solanaLogoMark.svg
+
+Meteora official v2 symbol: https://raw.githubusercontent.com/MeteoraAg/brand-kit/main/meteora-v2/symbol/symbol.svg
+Brand-kit provenance: https://github.com/MeteoraAg/brand-kit
+Raydium standalone mark: https://raw.githubusercontent.com/raydium-io/raydium-docs-v1/main/logo/raydium-r.png

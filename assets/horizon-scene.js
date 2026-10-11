@@ -78,8 +78,8 @@
     backdrop.translate(width * .5, height * .73);
     backdrop.scale(1, height / width * .74);
     const atmosphere = backdrop.createRadialGradient(0, 0, 0, 0, 0, width * .54);
-    atmosphere.addColorStop(0, 'rgba(89, 73, 158, .17)');
-    atmosphere.addColorStop(.44, 'rgba(43, 40, 96, .12)');
+    atmosphere.addColorStop(0, 'rgba(59, 98, 75, .17)');
+    atmosphere.addColorStop(.44, 'rgba(28, 55, 44, .12)');
     atmosphere.addColorStop(1, 'rgba(8, 9, 13, 0)');
     backdrop.fillStyle = atmosphere;
     backdrop.fillRect(-width, -width, width * 2, width * 2);
@@ -94,11 +94,11 @@
     backdrop.fill();
 
     const edge = backdrop.createLinearGradient(0, 0, width, 0);
-    edge.addColorStop(0, 'rgba(64, 106, 153, .44)');
-    edge.addColorStop(.28, 'rgba(154, 142, 222, .76)');
-    edge.addColorStop(.49, 'rgba(209, 191, 186, .76)');
-    edge.addColorStop(.72, 'rgba(172, 120, 176, .60)');
-    edge.addColorStop(1, 'rgba(64, 106, 153, .36)');
+    edge.addColorStop(0, 'rgba(69, 102, 93, .44)');
+    edge.addColorStop(.28, 'rgba(143, 173, 146, .76)');
+    edge.addColorStop(.49, 'rgba(208, 209, 179, .76)');
+    edge.addColorStop(.72, 'rgba(162, 173, 126, .60)');
+    edge.addColorStop(1, 'rgba(69, 102, 93, .36)');
     backdrop.strokeStyle = edge;
     backdrop.lineCap = 'round';
     for (const [weight, opacity] of [[14, .035], [5, .10], [2.5, .25], [1.1, 1]]) {
@@ -141,9 +141,9 @@
       const endX = x + width * offset * .34;
       const endY = y - height * (.20 + (index % 3) * .025);
       const beam = context.createLinearGradient(x, y, endX, endY);
-      beam.addColorStop(0, `rgba(166, 158, 223, ${.085 * breath})`);
-      beam.addColorStop(.42, 'rgba(118, 112, 175, .026)');
-      beam.addColorStop(1, 'rgba(118, 112, 175, 0)');
+      beam.addColorStop(0, `rgba(161, 187, 155, ${.085 * breath})`);
+      beam.addColorStop(.42, 'rgba(113, 143, 121, .026)');
+      beam.addColorStop(1, 'rgba(113, 143, 121, 0)');
       context.strokeStyle = beam;
       context.lineWidth = .6;
       context.beginPath();
@@ -153,9 +153,9 @@
     });
 
     const glow = context.createRadialGradient(x, y, 0, x, y, 24 * scale);
-    glow.addColorStop(0, `rgba(204, 195, 236, ${.12 * breath})`);
-    glow.addColorStop(.22, 'rgba(165, 153, 225, .055)');
-    glow.addColorStop(1, 'rgba(165, 153, 225, 0)');
+    glow.addColorStop(0, `rgba(207, 221, 195, ${.12 * breath})`);
+    glow.addColorStop(.22, 'rgba(166, 188, 155, .055)');
+    glow.addColorStop(1, 'rgba(166, 188, 155, 0)');
     context.fillStyle = glow;
     context.fillRect(x - 24 * scale, y - 24 * scale, 48 * scale, 48 * scale);
 
