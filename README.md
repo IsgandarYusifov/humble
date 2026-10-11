@@ -4,7 +4,7 @@ A complete frontend-only pre-launch website. The current experimental visual dir
 
 ## Run
 
-Run `npm run build`, `npm run check`, then `npm start`. Preview: http://127.0.0.1:3000/. No dependency installation is required; Inter and the licensed Three.js r186 renderer are self-hosted.
+Run `npm run build`, `npm run check`, then `npm start`. Preview: http://127.0.0.1:3000/. No dependency installation is required; Space Grotesk (hero), Inter (body), and the licensed Three.js r186 renderer are self-hosted.
 
 ## Pages
 
