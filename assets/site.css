@@ -118,3 +118,15 @@ html[data-effects=calm] .hero-apply:hover,html[data-effects=calm] .final-apply:h
  .site-footer{padding-top:38px}.footer-wordmark{font-size:42px}.footer-grid{gap:26px 20px}.footer-bottom{font-size:8px}.footer-grid a{min-height:36px}
 }
 @media(max-width:380px){.masthead .wordmark{font-size:27px;letter-spacing:-1.9px}.masthead .effects{font-size:8px;padding-inline:4px}.masthead .nav-apply{padding-inline:11px;gap:8px}.masthead .nav-apply .ui-arrow{font-size:15px}.header-actions{gap:5px}.masthead nav a{font-size:10px}.signal-table strong{font-size:18px}}
+/* Keep the moving sculpture above the hero caption on compact screens. */
+@media(max-width:760px){.portal-stage{height:34%;top:37%}}
+/* An honest pre-launch note, without a simulated card or surface effect. */
+.scanlines{display:none}
+.gallery-heading h2 em{text-shadow:none}
+.registry-status{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;gap:14px 60px;padding:30px 0 32px;border:0;border-top:1px solid #15151a40;border-bottom:1px solid #15151a40;background:transparent;color:var(--ink);box-shadow:none;transform:none}
+.registry-label{font:500 12px/1.5 Humble,Arial,sans-serif;letter-spacing:0;color:#575063;grid-column:1 / -1}
+.registry-status>p{font-size:clamp(32px,3.4vw,50px);line-height:1.08;font-weight:500;letter-spacing:-.035em}.registry-status strong{color:var(--blue);font-weight:600}
+.registry-note{font:15px/1.7 Humble,Arial,sans-serif;color:#514b5d;max-width:430px;align-self:end}
+.registry-link{color:var(--ink);font:500 13px/1.5 Humble,Arial,sans-serif;min-height:44px;gap:14px;margin-top:14px;border-bottom-color:#15151a55;padding-bottom:4px}.registry-link:hover{color:var(--blue);border-bottom-color:var(--blue)}.registry-link .ui-arrow{font-size:16px}
+@media(max-width:1100px){.registry-status{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px 40px}}
+@media(max-width:760px){.registry-status{grid-template-columns:1fr;gap:16px;padding-block:25px}.registry-status>p{font-size:clamp(32px,9vw,42px)}.registry-label{font-size:11px}.registry-note{font-size:14px;max-width:430px}.registry-link{font-size:12px}}
