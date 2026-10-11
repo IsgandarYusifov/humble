@@ -70,12 +70,12 @@ import * as THREE from './vendor/three.module.js';
       environment.add(mesh);
       panelResources.push({geometry, material});
     }
-    panel('#c7ff31', 4, [-4, 3.8, 3.5], [3.8, 6.8], -.2);
-    panel('#ff267e', 3.6, [4.2, 1.2, 3], [3.6, 6], .2);
-    panel('#4f8dff', 4.6, [1.6, -4, 4], [6, 2.6], .3);
-    panel('#f7ff83', 4.2, [-1.4, 5, -.5], [4.6, 2], -.3);
-    panel('#bbc6ff', 2.4, [-4.4, -1.8, -3], [4.5, 5]);
-    panel('#ff59fb', 3.2, [4, -1.6, -4], [3.5, 4]);
+    panel('#b4a6e8', 4, [-4, 3.8, 3.5], [3.8, 6.8], -.2);
+    panel('#c3b6d7', 3.6, [4.2, 1.2, 3], [3.6, 6], .2);
+    panel('#8d90b6', 4.6, [1.6, -4, 4], [6, 2.6], .3);
+    panel('#e3deef', 4.2, [-1.4, 5, -.5], [4.6, 2], -.3);
+    panel('#cbc5e0', 2.4, [-4.4, -1.8, -3], [4.5, 5]);
+    panel('#9989b4', 3.2, [4, -1.6, -4], [3.5, 4]);
     panel('#f7f8ff', 1.8, [-2.4, 1.6, 5.4], [1, 5.5], -.08);
     const pmrem = new THREE.PMREMGenerator(renderer);
     const environmentMap = pmrem.fromScene(environment, .04, .1, 30);
@@ -87,7 +87,7 @@ import * as THREE from './vendor/three.module.js';
     const key = new THREE.DirectionalLight('#e8f7ff', 2.1);
     key.position.set(-3, 5, 8);
     scene.add(key);
-    const edge = new THREE.DirectionalLight('#ff6cb3', 1.1);
+    const edge = new THREE.DirectionalLight('#baacd0', 1.1);
     edge.position.set(4, -2, 3);
     scene.add(edge);
 
@@ -142,8 +142,8 @@ import * as THREE from './vendor/three.module.js';
       ring.rotation.set(...rotation);
       orbitGroup.add(ring);
     }
-    orbit('#c7ff31', .32, 2.9, 2.7, [1.04, .36, -.3]);
-    orbit('#ff38d3', .18, 3.15, 2.6, [.44, 1.08, .35]);
+    orbit('#b4a6e8', .32, 2.9, 2.7, [1.04, .36, -.3]);
+    orbit('#b5a5c9', .18, 3.15, 2.6, [.44, 1.08, .35]);
     scene.add(orbitGroup);
 
     function pose(time) {
