@@ -37,5 +37,10 @@ for(const [route,html] of documents){
 for(const file of ['scripts/base-path.mjs','scripts/build.mjs','scripts/pages.mjs','scripts/horizon-page.mjs','scripts/preview.mjs','assets/application.js','assets/acid-interactions.js','assets/rupture-scene.js','assets/horizon-scene.js','assets/horizon-brand.js']){
  const result=spawnSync(process.execPath,['--check',file],{encoding:'utf8'});if(result.status!==0)issues.push(`${file}: ${result.stderr.trim()}`);
 }
+for(const file of ['assets/acid.css','assets/site.css','assets/application.css','assets/horizon.css']){
+ const css=fs.readFileSync(file,'utf8').replace(/\/\*[\s\S]*?\*\//g,'').replace(/"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g,'');
+ let depth=0;for(const char of css){if(char==='{')depth++;if(char==='}')depth--;if(depth<0)break;}
+ if(depth!==0)issues.push(file+': unbalanced stylesheet blocks');
+}
 if(issues.length){console.error(issues.join('\n'));process.exit(1);}
 console.log(`Verified ${documents.size} pages, ${linkCount} local links/assets, page headings/IDs, and source syntax.`);
