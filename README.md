@@ -1,6 +1,6 @@
 # Humble
 
-A complete frontend-only pre-launch website. The current experimental visual direction combines neon editorial composition, a custom chrome sculpture, an interactive idea field, origin context, and creator onboarding. No invented projects, creators, badges, mint addresses, metrics, or testimonials are included.
+A complete frontend-only pre-launch website. The current experimental visual direction combines muted lavender and charcoal editorial composition, a custom chrome sculpture, an interactive idea field, origin context, and creator onboarding. No invented projects, creators, badges, mint addresses, metrics, or testimonials are included.
 
 ## Run
 
