@@ -37,3 +37,17 @@ The existing Site identity and private audience are retained in .openai/hosting.
 ## GitHub Pages
 
 The public GitHub repository keeps all editable source and the self-hosted assets. The Pages workflow builds and verifies `out/` on every push to `main`, then deploys it. Enable Settings > Pages > GitHub Actions once. `HUMBLE_BASE_PATH` uses the Pages configuration output, so both project URLs and root-domain hosting work. For a local project-path build, set `HUMBLE_BASE_PATH=/humble` before `npm run build`; normal local and Sites builds omit it. No credentials or paid services are required by this frontend.
+
+## Horizon editorial media
+
+The second edition uses four real photographs plus an 11-second silent creative-process film. The imagery illustrates creative directions; the people and work shown are not Humble projects, applicants, partners, or endorsements. No AI-generated bitmap media is used in Horizon.
+
+- `idea-sound.jpg`: Jonny Gios, [Unsplash source](https://unsplash.com/photos/a-hand-holding-a-circuit-board-uL0yEZIyiQw), [Unsplash License](https://unsplash.com/license).
+- `idea-print.jpg`: HONG SON, [Pexels source](https://www.pexels.com/photo/a-man-is-working-on-a-screen-printing-machine-27893067/), [Pexels License](https://www.pexels.com/license/).
+- `idea-circuit.jpg`: Alexandre Debiève, [Unsplash source](https://unsplash.com/photos/macro-photography-of-black-circuit-board-FO7JIlwjOtU), Unsplash License.
+- `idea-code.jpg`: Sora Shimazaki, [Pexels source](https://www.pexels.com/photo/crop-faceless-developer-working-on-software-code-on-laptop-5926382/), Pexels License.
+- `creator-sketch.mp4` and its poster: Mikhail Nilov, [Pexels source](https://www.pexels.com/video/video-of-a-person-sketching-6970180/), Pexels License.
+
+Downloaded on October 11, 2026. Photographs are served at 1440px wide and cropped with CSS; the 1080p H.264 film is about 2.7MB. Media is self-hosted, with visible source credits on `/v2/data/#media-credits`. Photos lazy-load; the film has preload=none and only loads/plays while visible in Full mode. A separate Play/Pause control, Calm mode, reduced-motion, visibility/offscreen pausing, and static poster fallback keep the film optional. No third-party video embed or tracking player is used.
+
+Design research: [Phantom](https://phantom.com/) for cinematic section weight; [Manifold](https://manifold.xyz/) for art-led discovery; [Kickstarter's story handbook](https://www.kickstarter.com/help/handbook/your_story) for showing creative work and the people behind it. Humble's registry and application content remain its own.
