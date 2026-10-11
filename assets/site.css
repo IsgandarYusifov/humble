@@ -130,3 +130,20 @@ html[data-effects=calm] .hero-apply:hover,html[data-effects=calm] .final-apply:h
 .registry-link{color:var(--ink);font:500 13px/1.5 Humble,Arial,sans-serif;min-height:44px;gap:14px;margin-top:14px;border-bottom-color:#15151a55;padding-bottom:4px}.registry-link:hover{color:var(--blue);border-bottom-color:var(--blue)}.registry-link .ui-arrow{font-size:16px}
 @media(max-width:1100px){.registry-status{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px 40px}}
 @media(max-width:760px){.registry-status{grid-template-columns:1fr;gap:16px;padding-block:25px}.registry-status>p{font-size:clamp(32px,9vw,42px)}.registry-label{font-size:11px}.registry-note{font-size:14px;max-width:430px}.registry-link{font-size:12px}}
+/* A compact, flat version of the hero silhouette for the wordmark. */
+.wordmark{display:inline-flex;align-items:center;gap:11px;transform:none}
+.wordmark>span{transform:skew(-7deg)}
+.wordmark .brand-symbol{display:block;width:34px;height:34px;flex:none}
+@media(max-width:1100px){.wordmark{gap:9px}.wordmark .brand-symbol{width:30px;height:30px}}
+@media(max-width:760px){.wordmark{gap:7px}.wordmark .brand-symbol{width:27px;height:27px}}
+/* Bring the original hero sculpture a little further into the composition. */
+.portal-stage{right:-7%}
+@media(max-width:760px){.portal-stage{right:-34%}}
+/* Syne gives the poster headline a wider, more expressive silhouette. */
+@font-face{font-family:'Humble Headline';src:url('./syne-latin.woff2') format('woff2');font-weight:400 800;font-style:normal;font-display:swap}
+#portal-title{font-family:'Humble Headline',Humble,Arial,sans-serif;font-weight:700;font-size:clamp(76px,9.3vw,148px);line-height:1.02;letter-spacing:-.055em;word-spacing:0}
+#portal-title .title-all{font-family:'Humble Display',Humble,Arial,sans-serif;font-size:.98em;font-weight:600;margin:10px 0 10px 4%;transform:none;-webkit-text-stroke:1.3px var(--pink);letter-spacing:-.04em}
+#portal-title .title-ideas{font-size:1.14em;letter-spacing:-.055em}
+@media(max-width:760px){#portal-title{font-size:14.2vw;line-height:1.04;letter-spacing:-.055em}#portal-title .title-all{margin:8px 0 8px 4%;font-size:.98em}}/* A quiet comparison link keeps both design versions available. */
+.version-switcher{display:flex;align-items:center;gap:16px;position:static;margin:0 0 28px;font:12px/1.5 Humble,Arial,sans-serif;color:#aaa4b7}
+.version-switcher a{padding:5px 0;color:var(--paper);border-bottom:1px solid transparent}.version-switcher a[aria-current=page]{border-bottom-color:var(--pink)}.version-switcher a:hover{color:var(--pink)}

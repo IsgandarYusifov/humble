@@ -5,10 +5,8 @@ import * as THREE from './vendor/three.module.js';
   const canvas = document.getElementById('rupture-scene');
   const stage = canvas?.closest('.portal-stage');
   if (!canvas || !stage) return;
-  const interactionSurface = stage.closest('.portal') || stage;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const finePointer = matchMedia('(pointer: fine)');
-  const cycle = Math.PI * 2 / 36;
+  const cycle = Math.PI * 2 / 52;
   let renderer;
   let raf = 0;
   let elapsed = 0;
@@ -20,8 +18,6 @@ import * as THREE from './vendor/three.module.js';
   let failed = false;
   let width = 1;
   let height = 1;
-  const target = new THREE.Vector2();
-  const tilt = new THREE.Vector2();
   canvas.dataset.engine = `three.js r${THREE.REVISION}`;
   canvas.dataset.state = 'loading';
   canvas.dataset.frame = '0';
@@ -148,9 +144,9 @@ import * as THREE from './vendor/three.module.js';
 
     function pose(time) {
       const phase = time * cycle;
-      sculpture.rotation.set(-.14 + Math.sin(phase + .8) * .16 + tilt.y,
-        .38 + Math.sin(phase) * .42 + tilt.x, -.2 + Math.sin(phase * 2) * .045);
-      sculpture.position.y = Math.sin(phase) * .07;
+      sculpture.rotation.set(-.14 + Math.sin(phase + .8) * .08,
+        .38 + Math.sin(phase) * .22, -.2 + Math.sin(phase * 2) * .03);
+      sculpture.position.y = Math.sin(phase) * .04;
       orbitGroup.rotation.y = -.15 + Math.sin(phase + .4) * .15;
       orbitGroup.rotation.z = Math.sin(phase) * .08;
     }
@@ -183,8 +179,6 @@ import * as THREE from './vendor/three.module.js';
       const delta = lastTick ? Math.min((now - lastTick) / 1000, .05) : 0;
       lastTick = now;
       elapsed += delta;
-      const smooth = 1 - Math.exp(-delta * 3);
-      tilt.lerp(target, smooth);
       const paintInterval = 1000 / 60;
       if (now - lastRender >= paintInterval - .5) {
         lastRender = now - ((now - lastRender) % paintInterval);
@@ -199,25 +193,15 @@ import * as THREE from './vendor/three.module.js';
       lastRender = 0;
       if (failed || contextLost) return;
       if (quiet()) {
-        target.set(0, 0);
-        tilt.set(0, 0);
         render();
         return;
       }
       if (visible && !document.hidden) raf = requestAnimationFrame(tick);
       else canvas.dataset.state = 'paused';
     }
-    interactionSurface.addEventListener('pointermove', event => {
-      if (quiet() || !finePointer.matches || event.pointerType === 'touch') return;
-      const rect = interactionSurface.getBoundingClientRect();
-      target.set(((event.clientX - rect.left) / rect.width * 2 - 1) * .1,
-        ((event.clientY - rect.top) / rect.height * 2 - 1) * .08);
-    }, {passive: true});
-    interactionSurface.addEventListener('pointerleave', () => target.set(0, 0), {passive: true});
     document.addEventListener('visibilitychange', synchronize);
     window.addEventListener('humble:effects', synchronize);
     reduced.addEventListener('change', synchronize);
-    finePointer.addEventListener('change', () => target.set(0, 0));
     new ResizeObserver(resize).observe(stage);
     new IntersectionObserver(entries => {
       visible = entries[0].isIntersecting;
