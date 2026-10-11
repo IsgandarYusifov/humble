@@ -4,7 +4,7 @@ A complete frontend-only pre-launch website. The current experimental visual dir
 
 ## Run
 
-Run `npm run build`, `npm run check`, then `npm start`. Preview: http://127.0.0.1:3000/. No dependency installation is required; Space Grotesk (hero), Inter (body), and the licensed Three.js r186 renderer are self-hosted.
+Run `npm run build`, `npm run check`, then `npm start`. Preview: http://127.0.0.1:3000/. No dependency installation is required; Space Grotesk (display), Inter (body), and the licensed Three.js r186 renderer are self-hosted.
 
 ## Pages
 
@@ -24,7 +24,7 @@ Every Apply link opens the standalone /apply/ page. Its form prepares an email d
 
 The registry is preparing its first cohort. This site does not execute token launches, trading, wallets, or origin verification. Current-state notes distinguish the intended registry from live product capabilities. Data notes describe this interface; they do not invent a company-wide privacy policy.
 
-Effects: Full / Calm is available in every page header. Calm stops decorative motion and pointer effects and hides CRT texture. Device reduced-motion preferences automatically select Calm. The effects preference is the only value this interface writes to local browser storage. The WebGL scene pauses when hidden or offscreen, caps painting at 60 fps, and caps pixel ratios. Pointer tilt applies only in Full mode on fine-pointer devices. The hero has a CSS sculpture fallback.
+Effects: Full / Calm is available in every page header. Calm stops decorative motion and pointer effects. Device reduced-motion preferences automatically select Calm. The effects preference is the only value this interface writes to local browser storage. The WebGL scene pauses when hidden or offscreen, caps painting at 60 fps, and caps pixel ratios. Pointer tilt applies only in Full mode on fine-pointer devices. The hero has a CSS sculpture fallback.
 
 The existing Site identity and private audience are retained in .openai/hosting.json. Build output and review artifacts are ignored by Git.
 
