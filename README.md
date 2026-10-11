@@ -1,6 +1,6 @@
 # Humble
 
-A complete frontend-only pre-launch website. The current experimental visual direction combines neon editorial composition, a custom chrome sculpture, an interactive idea field, origin context, and creator onboarding. No invented projects, creators, badges, mint addresses, metrics, or testimonials are included.
+A complete frontend-only pre-launch website. The visual direction combines a light editorial canvas, a dark cinematic hero, an animated planetary landscape, an interactive idea field, origin context, and creator onboarding. No invented projects, creators, badges, mint addresses, metrics, or testimonials are included.
 
 ## Run
 
@@ -24,7 +24,7 @@ Every Apply link opens the standalone /apply/ page. Its form prepares an email d
 
 The registry is preparing its first cohort. This site does not execute token launches, trading, wallets, or origin verification. Current-state notes distinguish the intended registry from live product capabilities. Data notes describe this interface; they do not invent a company-wide privacy policy.
 
-Effects: Full / Calm is available in every page header. Calm stops decorative motion and pointer effects and hides CRT texture. Device reduced-motion preferences automatically select Calm. The effects preference is the only value this interface writes to local browser storage. The WebGL scene pauses when hidden or offscreen, caps painting at 60 fps, and caps pixel ratios. Pointer tilt applies only in Full mode on fine-pointer devices. The hero has a CSS sculpture fallback.
+Motion: Full / Calm is available in the footer. Calm stops decorative motion. Device reduced-motion preferences automatically select Calm. The effects preference is the only value this interface writes to local browser storage. The hero follows a gentle autonomous 72-second cycle and never responds to mouse movement or clicks. Its WebGL scene pauses when hidden or offscreen, caps painting at 30 fps, and caps pixel ratios. The hero has a CSS horizon fallback and restores its scene after a recovered WebGL context.
 
 The existing Site identity and private audience are retained in .openai/hosting.json. Build output and review artifacts are ignored by Git.
 
