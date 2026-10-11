@@ -1,0 +1,66 @@
+/* Autonomous editorial scenes. Official artwork stays intact inside each composition. */
+.horizon-theme .ecosystem-visual{height:228px;flex-basis:228px;position:relative;isolation:isolate;overflow:hidden;border-radius:18px;pointer-events:none}
+.horizon-theme .ecosystem-scene{position:absolute;width:380px;height:228px;left:50%;top:50%;transform:translate(-50%,-50%);--scene-speed:16s}
+.horizon-theme .ecosystem-scene img{position:relative;width:auto;height:auto;object-fit:contain;max-width:none;transform:none}
+.horizon-theme .ecosystem-card{min-height:414px;gap:18px}
+.horizon-theme .ecosystem-card .ecosystem-summary{position:relative;z-index:1}
+.horizon-theme .scene-solana{perspective:900px}
+.horizon-theme .ledger-face,.horizon-theme .ledger-back{position:absolute;width:236px;height:146px;left:74px;top:41px;border-radius:17px;transform:rotate(-9deg);border:1px solid #8baf9860}
+.horizon-theme .ledger-back{background:#2c4434;transform:translate(-12px,14px) rotate(-9deg);opacity:.7;animation:ledger-depth 16s ease-in-out infinite}
+.horizon-theme .ledger-face{display:flex;align-items:center;padding:29px;gap:28px;background:linear-gradient(135deg,#456250,#243c2c);box-shadow:0 16px 25px #0a160c45,inset 0 1px #cce2c41f;animation:ledger-drift 16s ease-in-out infinite}
+.horizon-theme .ledger-face img{width:69px;height:63px;flex:none}
+.horizon-theme .ledger-lines{flex:1;display:flex;flex-direction:column;gap:12px}
+.horizon-theme .ledger-lines i{height:3px;background:#bfd0b34d;border-radius:3px;width:100%}
+.horizon-theme .ledger-lines i:nth-child(2){width:70%}.horizon-theme .ledger-lines i:nth-child(3){width:85%}
+.horizon-theme .ledger-signals{display:flex;gap:5px;position:absolute;right:22px;bottom:18px}
+.horizon-theme .ledger-signals i{width:5px;height:5px;border-radius:50%;background:#b8d6b7;opacity:.25;animation:signal-breathe 12s ease-in-out infinite}
+.horizon-theme .ledger-signals i:nth-child(2){animation-delay:-4s}.horizon-theme .ledger-signals i:nth-child(3){animation-delay:-8s}
+.horizon-theme .network-tile{position:absolute;display:flex;align-items:center;gap:4px;width:51px;height:39px;border:1px solid #90b29836;background:#314735;border-radius:8px;justify-content:center;transform:rotate(-9deg);animation:network-drift 18s ease-in-out infinite}
+.horizon-theme .network-tile i{width:4px;height:4px;background:#b2cdb0;border-radius:50%;opacity:.65}
+.horizon-theme .network-tile--one{left:21px;top:46px;animation-delay:-3s}.horizon-theme .network-tile--two{right:17px;top:34px;animation-delay:-9s}.horizon-theme .network-tile--three{right:35px;bottom:23px;animation-delay:-14s}
+.horizon-theme .scene-pump{perspective:1000px}
+.horizon-theme .launch-ticket{position:absolute;width:152px;height:182px;top:24px;left:114px;border-radius:18px;border:1px solid #97ae7e80;background:#d1dfb9;box-shadow:0 12px 20px #34532a12}
+.horizon-theme .launch-ticket--back{transform:translate(-68px,5px) rotate(-19deg);background:#b5c69e;animation:ticket-back 18s ease-in-out infinite}
+.horizon-theme .launch-ticket--middle{transform:translate(63px,6px) rotate(18deg);background:#f0f3e4;animation:ticket-middle 18s ease-in-out infinite}
+.horizon-theme .launch-ticket--front{background:linear-gradient(140deg,#fbfcf3,#e6edd7);border-color:#a5b68c;transform:rotate(-3deg);animation:ticket-front 18s ease-in-out infinite}
+.horizon-theme .launch-ticket--front img{position:absolute;width:89px;height:89px;left:31px;top:25px}
+.horizon-theme .ticket-perforation{position:absolute;left:14px;right:14px;bottom:48px;border-bottom:1px dashed #a2b68c80}
+.horizon-theme .ticket-cutout{position:absolute;left:24px;right:24px;bottom:22px;display:flex;align-items:center;justify-content:space-between;gap:7px}
+.horizon-theme .ticket-cutout i{height:4px;width:45px;border-radius:3px;background:#81996755}.horizon-theme .ticket-cutout i:nth-child(2){width:16px}.horizon-theme .ticket-cutout i:nth-child(3){width:16px}
+.horizon-theme .launch-ticket>span{position:absolute;left:20px;right:20px;bottom:20px;height:5px;border-radius:4px;background:#74875f30}
+.horizon-theme .scene-raydium{perspective:800px}
+.horizon-theme .market-plane{position:absolute;width:142px;height:154px;left:119px;top:35px;border-radius:24px;transform:rotate(-8deg);border:1px solid #8999b648;background:#35414e}
+.horizon-theme .market-plane--back{transform:translate(9px,13px) rotate(-8deg);background:#1d2834;animation:market-depth 20s ease-in-out infinite}
+.horizon-theme .market-plane--front{display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#425365,#2b3544);box-shadow:0 15px 30px #0b14233d;animation:market-drift 20s ease-in-out infinite}
+.horizon-theme .market-plane--front img{width:77px;height:90px}
+.horizon-theme .route-track{position:absolute;width:346px;height:74px;left:17px;border:1px solid #89b8bc45;border-radius:45px;transform:rotate(-17deg);overflow:hidden}
+.horizon-theme .route-track--top{top:54px}.horizon-theme .route-track--bottom{top:101px;transform:rotate(17deg);border-color:#9bafc53d}
+.horizon-theme .route-track i{position:absolute;width:38px;height:2px;left:22px;top:-1px;background:#b8d9d8;opacity:.65;animation:route-travel 16s ease-in-out infinite}
+.horizon-theme .route-track--bottom i{animation-delay:-8s;background:#b5c5e8}
+.horizon-theme .market-dot{position:absolute;width:8px;height:8px;background:#a1c4c1;border:2px solid #252c33;border-radius:50%}.horizon-theme .market-dot--one{left:33px;top:135px}.horizon-theme .market-dot--two{right:33px;top:81px;background:#b9c4da}
+.horizon-theme .scene-meteora{overflow:hidden}
+.horizon-theme .liquidity-contours{position:absolute;width:346px;height:190px;left:17px;top:23px;transform:rotate(-13deg)}
+.horizon-theme .liquidity-contours i{position:absolute;inset:0;border:1px solid #c1d5b947;border-radius:50%;transform:scale(.98,.84)}
+.horizon-theme .liquidity-contours i:nth-child(2){inset:15px 26px;transform:scale(.98,.84)}.horizon-theme .liquidity-contours i:nth-child(3){inset:30px 52px;transform:scale(.98,.84)}.horizon-theme .liquidity-contours i:nth-child(4){inset:45px 78px;transform:scale(.98,.84)}
+.horizon-theme .liquidity-band{position:absolute;width:286px;height:130px;left:47px;top:49px;transform:rotate(-13deg) scale(.79);border:1px solid #d9dcc67a;border-radius:50%;opacity:.65;animation:liquidity-flow 24s ease-in-out infinite}
+.horizon-theme .liquidity-band--two{animation-delay:-12s}
+.horizon-theme .meteora-core{position:absolute;left:135px;top:58px;width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#355746;box-shadow:0 8px 24px #122b1e1a;animation:meteora-rise 24s ease-in-out infinite}
+.horizon-theme .meteora-core img{width:99px;height:99px}
+@keyframes ledger-drift{0%,100%{transform:translate(0,3px) rotate(-9deg)}50%{transform:translate(0,-5px) rotate(-7deg)}}
+@keyframes ledger-depth{0%,100%{transform:translate(-12px,14px) rotate(-9deg)}50%{transform:translate(-18px,18px) rotate(-10deg)}}
+@keyframes network-drift{0%,100%{transform:translateY(0) rotate(-9deg)}50%{transform:translateY(-7px) rotate(-7deg)}}
+@keyframes signal-breathe{0%,100%{opacity:.25}50%{opacity:.8}}
+@keyframes ticket-front{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-7px) rotate(0deg)}}
+@keyframes ticket-back{0%,100%{transform:translate(-68px,5px) rotate(-19deg)}50%{transform:translate(-77px,4px) rotate(-23deg)}}
+@keyframes ticket-middle{0%,100%{transform:translate(63px,6px) rotate(18deg)}50%{transform:translate(72px,2px) rotate(22deg)}}
+@keyframes market-drift{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-6px) rotate(-5deg)}}
+@keyframes market-depth{0%,100%{transform:translate(9px,13px) rotate(-8deg)}50%{transform:translate(13px,18px) rotate(-9deg)}}
+@keyframes route-travel{0%,100%{transform:translateX(0);opacity:.35}50%{transform:translateX(265px);opacity:.85}}
+@keyframes liquidity-flow{0%,100%{transform:rotate(-13deg) scale(.79);opacity:.35}50%{transform:rotate(-9deg) scale(1.13);opacity:.7}}
+@keyframes meteora-rise{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.horizon-theme .ecosystem-card .ecosystem-scene *{animation-play-state:paused}
+.horizon-theme .ecosystem-card[data-scene-active=true] .ecosystem-scene *{animation-play-state:running}
+html[data-effects=calm] .horizon-theme .ecosystem-scene *{animation:none!important}
+@media(prefers-reduced-motion:reduce){.horizon-theme .ecosystem-scene *{animation:none!important}}
+@media(max-width:760px){.horizon-theme .ecosystem-visual{height:205px;flex-basis:205px}.horizon-theme .ecosystem-scene{transform:translate(-50%,-50%) scale(.9)}.horizon-theme .ecosystem-card{min-height:390px}}
+@media(max-width:380px){.horizon-theme .ecosystem-visual{height:180px;flex-basis:180px}.horizon-theme .ecosystem-scene{transform:translate(-50%,-50%) scale(.73)}.horizon-theme .ecosystem-card{min-height:366px}}
