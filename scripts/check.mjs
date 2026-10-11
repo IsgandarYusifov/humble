@@ -34,7 +34,7 @@ for(const [route,html] of documents){
   if(url.hash&&!target.includes(`id="${url.hash.slice(1)}"`))issues.push(`${route}: missing anchor ${value}`);
  }
 }
-for(const file of ['scripts/base-path.mjs','scripts/build.mjs','scripts/pages.mjs','scripts/horizon-page.mjs','scripts/preview.mjs','assets/application.js','assets/acid-interactions.js','assets/rupture-scene.js','assets/horizon-scene.js','assets/horizon-media.js']){
+for(const file of ['scripts/base-path.mjs','scripts/build.mjs','scripts/pages.mjs','scripts/horizon-page.mjs','scripts/preview.mjs','assets/application.js','assets/acid-interactions.js','assets/rupture-scene.js','assets/horizon-scene.js','assets/horizon-brand.js']){
  const result=spawnSync(process.execPath,['--check',file],{encoding:'utf8'});if(result.status!==0)issues.push(`${file}: ${result.stderr.trim()}`);
 }
 if(issues.length){console.error(issues.join('\n'));process.exit(1);}
