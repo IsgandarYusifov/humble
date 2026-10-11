@@ -3,7 +3,8 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {normalizeBasePath} from './base-path.mjs';
 const root=path.resolve('out');
-const routes=['/','/origin/','/creators/','/about/','/data/','/apply/','/404.html'];
+const originalRoutes=['/','/origin/','/creators/','/about/','/data/','/apply/','/404.html'];
+const routes=[...originalRoutes,...originalRoutes.map(route=>'/v2'+route)];
 const routeFile=route=>path.join(root,route==='/'?'index.html':route.endsWith('/')?route.slice(1)+'index.html':route.slice(1));
 const documents=new Map(routes.map(route=>[route,fs.readFileSync(routeFile(route),'utf8')]));
 const basePath=normalizeBasePath(documents.get('/').match(/name="humble-base-path" content="([^"]*)"/)?.[1]);
@@ -14,10 +15,11 @@ for(const [route,html] of documents){
  if(/[\u2197\u2193\u2191]/.test(html))issues.push(`${route}: font-dependent direction glyph remains`);
  for(const match of html.matchAll(/<a([^>]*\bdata-apply\b[^>]*)>/g)){
   const href=match[1].match(/href="([^"]*)"/)?.[1];
-  const valid=href==='#application-form'||href===basePath+'/apply/'||['culture','art','agent','product'].some(category=>href===basePath+'/apply/?category='+category);
+  const variant=route.startsWith('/v2/')?'/v2':'';
+  const valid=href==='#application-form'||href===basePath+variant+'/apply/'||['culture','art','agent','product'].some(category=>href===basePath+variant+'/apply/?category='+category);
   if(!valid)issues.push(`${route}: invalid Apply destination`);
  }
- if(route!=='/apply/'&&/<a[^>]*\bdata-apply\b[^>]*href="#application-form"/.test(html))issues.push(`${route}: self Apply anchor outside application page`);
+ if(!['/apply/','/v2/apply/'].includes(route)&&/<a[^>]*\bdata-apply\b[^>]*href="#application-form"/.test(html))issues.push(`${route}: self Apply anchor outside application page`);
  if(new Set(ids).size!==ids.length)issues.push(`${route}: duplicate IDs`);
  if((html.match(/<h1\b/g)||[]).length!==1)issues.push(`${route}: expected one h1`);
  if(/Chroma|Nexus|chromalabs|nexus_core|7xKX|9yLM/.test(html))issues.push(`${route}: invented launch content`);
@@ -32,7 +34,7 @@ for(const [route,html] of documents){
   if(url.hash&&!target.includes(`id="${url.hash.slice(1)}"`))issues.push(`${route}: missing anchor ${value}`);
  }
 }
-for(const file of ['scripts/base-path.mjs','scripts/build.mjs','scripts/pages.mjs','scripts/preview.mjs','assets/application.js','assets/acid-interactions.js','assets/rupture-scene.js']){
+for(const file of ['scripts/base-path.mjs','scripts/build.mjs','scripts/pages.mjs','scripts/horizon-page.mjs','scripts/preview.mjs','assets/application.js','assets/acid-interactions.js','assets/rupture-scene.js','assets/horizon-scene.js']){
  const result=spawnSync(process.execPath,['--check',file],{encoding:'utf8'});if(result.status!==0)issues.push(`${file}: ${result.stderr.trim()}`);
 }
 if(issues.length){console.error(issues.join('\n'));process.exit(1);}

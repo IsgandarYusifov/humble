@@ -1,0 +1,30 @@
+import {renderPage} from './pages.mjs';
+
+const horizonHome = `<main id="main">
+<section class="horizon-card" aria-labelledby="horizon-title">
+<div class="horizon-static" aria-hidden="true"></div><canvas id="horizon-scene" aria-hidden="true"></canvas>
+<div class="horizon-copy"><h1 id="horizon-title"><span>The home of all ideas.</span><span>Bring yours to market. Let the</span><span>world witness it.</span></h1><a class="horizon-apply" data-apply href="/apply/">Apply <span class="ui-arrow" aria-hidden="true"></span></a></div>
+</section>
+<section class="horizon-registry" id="showcase" aria-labelledby="showcase-title"><div class="horizon-section-head"><h2 id="showcase-title">The originals.</h2><p>A place for the idea, the creator,<br>and the beginning that connects them.</p></div><div class="horizon-cohort"><div><span>First cohort</span><h3>The beginning is open.</h3></div><div><p>We're personally bringing together the first Humble creators. Reviewed projects will appear here when the cohort is ready.</p><a class="text-link" href="/creators/">For the first creators <span class="ui-arrow ui-arrow--ne" aria-hidden="true"></span></a></div></div></section>
+<section class="horizon-ideas" id="idea-field" aria-labelledby="field-title"><div class="horizon-section-head"><h2 id="field-title">No limit to the idea.</h2><p>A cultural world. A useful invention.<br>Something we haven't seen before.</p></div><div class="horizon-idea-grid signal-table" role="group" aria-label="Explore types of ideas"><button data-signal="culture" aria-pressed="true"><strong>Culture + lore</strong><span>Memes, communities, and new internet worlds.</span></button><button data-signal="art" aria-pressed="false"><strong>Art + internet IP</strong><span>Characters, creative work, and worlds of your own.</span></button><button data-signal="agent" aria-pressed="false"><strong>AI + agents</strong><span>Intelligence with a creator and a purpose.</span></button><button data-signal="product" aria-pressed="false"><strong>Code + products</strong><span>Tools and technical ideas made tangible.</span></button></div><div class="horizon-category-detail signal-output" data-signal="culture"><div class="signal-description" aria-live="polite"><span id="signal-label">CULTURE / 01</span><h3 id="signal-title">Lore worth believing in.</h3><p id="signal-description">Memes, communities, and internet worlds with an identifiable creator behind the first spark.</p></div><a class="signal-apply" data-apply href="/apply/?category=culture">Bring this kind of idea <span class="ui-arrow ui-arrow--ne" aria-hidden="true"></span></a></div></section>
+<section class="horizon-origin" id="manifesto" aria-labelledby="manifesto-title"><h2 id="manifesto-title">Originality<br>has an address.</h2><div><p>Ideas travel fast. Their origin should travel with them.</p><p>Humble is being built to keep the creator, the narrative, and the canonical address in the same frame.</p><a class="text-link" href="/origin/">Understand origin <span class="ui-arrow ui-arrow--ne" aria-hidden="true"></span></a></div></section>
+<section class="horizon-faq" aria-labelledby="home-questions"><div><h2 id="home-questions">Before the first wave.</h2><a class="text-link" href="/creators/">For creators <span class="ui-arrow ui-arrow--ne" aria-hidden="true"></span></a></div><div class="questions"><details><summary>What belongs on Humble?</summary><p>Culture, high-effort meme lore, art, internet IP, AI agents, technical products, and ideas that cross categories. An identifiable creator or team should stand behind the concept.</p></details><details><summary>Is Humble live?</summary><p>Humble is pre-launch. The first cohort is being prepared; no live launches are listed. You can introduce your idea through Apply.</p></details><details><summary>What does origin mean here?</summary><p>The purpose is to connect an idea to its creator, its public history, and its canonical address when one exists. <a href="/origin/">Read the approach and its limits.</a></p></details><details><summary>Can I apply before I have a mint?</summary><p>Yes. The address field is optional. Start with your idea, the people behind it, and any origin links you can share.</p></details></div></section>
+<section class="horizon-invitation" aria-labelledby="invitation-title"><h2 id="invitation-title">It could begin with you.</h2><p>Bring your world to Humble.<br>The first conversation stays private.</p><a class="horizon-apply" data-apply href="/apply/">Apply <span class="ui-arrow" aria-hidden="true"></span></a></section>
+</main>`;
+
+export function withVersionLinks(html, route='/', horizon=false){
+ const original = route==='404' ? '/404.html' : route==='/' ? '/' : `/${route}/`;
+ const alternate = route==='404' ? '/v2/404.html' : route==='/' ? '/v2/' : `/v2/${route}/`;
+ const switcher=`<nav class="version-switcher" aria-label="Design version"><span>Design</span><a href="${original}"${horizon?'':' aria-current="page"'}>Current</a><a href="${alternate}"${horizon?' aria-current="page"':''}>Horizon</a></nav>`;
+ return html.replace('<div class="footer-top">',switcher+'<div class="footer-top">');
+}
+
+export function renderHorizon(home, page=null){
+ let html=page ? renderPage(home,page) : home.replace(/<main id="main">[\s\S]*?<\/main>/,horizonHome);
+ html=html.replace(/<body([^>]*)>/,'<body class="horizon-theme"$1>');
+ html=html.replace('</head>','<link rel="stylesheet" href="/assets/horizon.css"></head>');
+ html=html.replace('<meta name="theme-color" content="#15151a">','<meta name="theme-color" content="#F5F5F8">');
+ html=html.replace('<script type="module" src="/assets/rupture-scene.js"></script>','<script src="/assets/horizon-scene.js" defer></script>');
+ html=html.replace(/href="\/(?!assets\/)([^\"]*)"/g,(_,value)=>`href="/v2/${value}"`);
+ return withVersionLinks(html,page?.route||'/',true);
+}
