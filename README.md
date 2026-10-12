@@ -36,7 +36,13 @@ The review shows the applicant's actual entries. Local validation checks image t
 
 The native multipart form forwards the image and application through [FormSubmit](https://formsubmit.co/documentation) to liquify.support@gmail.com. The provider's security check remains enabled. A branded return screen is not a signed delivery receipt. There is no Humble-owned application database. FormSubmit documents 30-day text archives; attachments are forwarded but not retained in its archive.
 
-Values and uploads stay in memory while completing the form; no application data is written to browser storage or navigation URLs. A downloadable text copy excludes the image and does not submit the application. The only stored browser preference is Full/Calm decorative motion.
+Values and uploads stay in memory while completing the form; no application data is written to browser storage or navigation URLs. A downloadable text copy excludes the image and does not submit the application. Browser preferences include Full/Calm decorative motion and the visitor's analytics choice.
+
+## Google Analytics
+
+The separate Humble GA4 account uses property `558547234`, web stream `16113841538`, and public Measurement ID `G-EJ6MKNHZDF`. Portfolio uses a different account and tag. The shared shell includes `assets/analytics.js` and `assets/analytics.css` on both editions and all pages. The ID is a public tag identifier, not a credential.
+
+Only the production GitHub Pages hostname is measured. Basic consent mode loads Google's tag only after Allow analytics; Decline blocks it. The footer lets visitors change their choice. Advertising consent stays denied. Analytics cookies use a Humble prefix and the build base path. Automatic enhanced measurement is disabled in the stream; form entries are never passed to Analytics, and page/referrer query strings and fragments are excluded. Local previews and the owner-private Sites publication do not report traffic.
 
 ## Source structure
 
