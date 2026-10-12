@@ -10,6 +10,8 @@ const documents=new Map(routes.map(route=>[route,fs.readFileSync(routeFile(route
 const basePath=normalizeBasePath(documents.get('/').match(/name="humble-base-path" content="([^"]*)"/)?.[1]);
 const issues=[];let linkCount=0;
 for(const [route,html] of documents){
+ if((html.match(/src="[^"]*\/assets\/analytics\.js(?:\?[^"]*)?"/g)||[]).length!==1)issues.push(route+': expected one analytics integration');
+ if(!html.includes('data-measurement-id="G-EJ6MKNHZDF"'))issues.push(route+': missing Humble measurement ID');
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
  if(/<dialog\b/.test(html))issues.push(`${route}: application modal remains`);
  if(/[\u2197\u2193\u2191]/.test(html))issues.push(`${route}: font-dependent direction glyph remains`);
@@ -34,10 +36,10 @@ for(const [route,html] of documents){
   if(url.hash&&!target.includes(`id="${url.hash.slice(1)}"`))issues.push(`${route}: missing anchor ${value}`);
  }
 }
-for(const file of ['scripts/base-path.mjs','scripts/build.mjs','scripts/pages.mjs','scripts/horizon-page.mjs','scripts/preview.mjs','assets/application.js','assets/acid-interactions.js','assets/rupture-scene.js','assets/horizon-scene.js','assets/horizon-brand.js']){
+for(const file of ['scripts/base-path.mjs','scripts/build.mjs','scripts/pages.mjs','scripts/horizon-page.mjs','scripts/preview.mjs','assets/analytics.js','assets/application.js','assets/acid-interactions.js','assets/rupture-scene.js','assets/horizon-scene.js','assets/horizon-brand.js']){
  const result=spawnSync(process.execPath,['--check',file],{encoding:'utf8'});if(result.status!==0)issues.push(`${file}: ${result.stderr.trim()}`);
 }
-for(const file of ['assets/acid.css','assets/site.css','assets/application.css','assets/horizon.css']){
+for(const file of ['assets/analytics.css','assets/acid.css','assets/site.css','assets/application.css','assets/horizon.css']){
  const css=fs.readFileSync(file,'utf8').replace(/\/\*[\s\S]*?\*\//g,'').replace(/"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g,'');
  let depth=0;for(const char of css){if(char==='{')depth++;if(char==='}')depth--;if(depth<0)break;}
  if(depth!==0)issues.push(file+': unbalanced stylesheet blocks');
